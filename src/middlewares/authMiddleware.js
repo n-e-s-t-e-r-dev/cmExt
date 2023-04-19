@@ -6,6 +6,7 @@ const pool = new Pool({
     database: process.env.DB_CONFIG_DATABASE,
     password: process.env.DB_CONFIG_PASSWORD,
     port: process.env.DB_CONFIG_PORT,
+    ssl: true
 });
 
 function authMiddleware(req, res, next) {

@@ -12,7 +12,7 @@ router.put("/api/v1/users/:id", updateUser);
 
 router.get("/api/v1/users", getAllUsers)
 
-router.get("/api/v1/existe",authMiddleware, getUser)
+router.get("/api/v1/existe/:email",authMiddleware, getUser)
 
 
 

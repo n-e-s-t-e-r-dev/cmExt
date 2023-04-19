@@ -40,7 +40,7 @@ const updateUser = async (req, res, next) => {
     }
 };
 
-const getAllUsers = async (req ,res, next) => {
+const getAllUsers = async (req, res, next) => {
     try {
         const result = res.body
         const users = await UsersServices.getUsers(result);
@@ -50,8 +50,21 @@ const getAllUsers = async (req ,res, next) => {
     }
 };
 
+const getUser = async (req, res) => {
+    try {
+        const { email } = req.params;
+        const user = await UsersServices.getUser(email);
+        if (!user) {
+            return res.status(404).json({ message: 'Usuario no encontrado' });
+        }
+        return res.json(user);
+    } catch (error) {
+        return res.status(500).json({ message: error.message });
+    }
+}
 module.exports = {
     createUser,
     updateUser,
-    getAllUsers
+    getAllUsers,
+    getUser
 };

@@ -1,4 +1,4 @@
-const { User } = require('../models');
+const User  = require('../models/users.models');
 
 async function authMiddleware(req, res, next) {
     const { username, password } = req.body;

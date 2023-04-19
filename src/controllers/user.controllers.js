@@ -52,7 +52,7 @@ const getAllUsers = async (req, res, next) => {
 
 const getUser = async (req, res) => {
     try {
-        const { email } = req.params;
+        const email = req.body;
         const user = await UsersServices.getUser(email);
         if (!user) {
             return res.status(404).json({ message: 'Usuario no encontrado' });

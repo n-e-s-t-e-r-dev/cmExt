@@ -1,12 +1,11 @@
 const express = require("express");
 const cors = require("cors");
 const morgan = require("morgan");
-const initModels = require("./models/initMoldes");
 const db = require("./utils/database");
 const userRoutes = require("./routes/users.routes");
 const authRoutes = require("./routes/auth.routes");
 const errorHandlerRouter = require("./routes/errorHandler.routes");
-initModels();
+
 
 
 const app = express();
@@ -24,7 +23,7 @@ db.authenticate()
     })
     .catch((error) => console.log(error));
 
-db.sync({ alter: false }) // alterar los atributos
+db.sync({ alter: true }) // alterar los atributos
     .then(() => console.log("Base de datos sync"))
     .catch((error) => console.log(error));
 

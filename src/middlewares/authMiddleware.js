@@ -1,11 +1,11 @@
 const User  = require('../models/users.models');
 
 async function authMiddleware(req, res, next) {
-    const { username, password } = req.body;
+    const { email, username, password } = req.body;
 
     try {
         const user = await User.findOne({
-            where: { username },
+            where: { email },
         });
 
         if (!user) {

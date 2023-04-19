@@ -32,6 +32,15 @@ class UsersServices {
             throw error;
         }
     }
+
+    static async getUsers(result) {
+        try {
+            const user = await Users.findAll();
+            return user;
+        } catch (error) {
+            throw error;
+        }
+    }
 }
 
 module.exports = UsersServices;

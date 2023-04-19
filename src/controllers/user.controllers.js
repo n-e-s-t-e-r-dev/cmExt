@@ -40,7 +40,18 @@ const updateUser = async (req, res, next) => {
     }
 };
 
+const getAllUsers = async (req ,res, next) => {
+    try {
+        const result = res.body
+        const users = await UsersServices.getUsers(result);
+        res.status(200).json(users);
+    } catch (error) {
+        next(error)
+    }
+};
+
 module.exports = {
     createUser,
     updateUser,
+    getAllUsers
 };

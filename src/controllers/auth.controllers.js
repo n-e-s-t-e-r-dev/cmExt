@@ -1,6 +1,6 @@
 const UserServices = require("../services/user.services");
 const AuthServices = require("../services/auth.services");
-const bcrypt = require("bcrypt");
+
 
 const userLogin = async (req, res, next) => {
     try {
@@ -14,26 +14,6 @@ const userLogin = async (req, res, next) => {
                 errorName: "User not found",
             });
         }
-
-        const match = await bcrypt.compare(password, user.password);
-        if (!match) {
-            return next({
-                status: 400,
-                message: "The password doesn't match with email user",
-                errorName: "Invalid password",
-            });
-        }
-
-        const { id, username, avatar } = user;
-
-        const token = AuthServices.genToken({ id, username, email });
-        res.json({
-            id,
-            username,
-            email,
-            token,
-            avatar
-        });
     } catch (error) {
         next(error);
     }

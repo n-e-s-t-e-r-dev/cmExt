@@ -13,8 +13,8 @@ const createUser = async (req, res, next) => {
                 to: user.email,
                 subject: "Bienvenido",
                 html: `
-          <p>Hola ${user.username} Bienvenido a mi Ecommerce</p>
-          <p>Podras vender o comprar productos </p>`,
+          <p>Hola ${user.username} Bienvenido a mi Extension</p>
+          <p>Podras llegar a muchos clientes con ella </p>`,
             });
         }
 

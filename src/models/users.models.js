@@ -22,6 +22,10 @@ const Users = db.define('users', {
         type: DataTypes.TEXT,
         allowNull: false
     },
+    avatar: {
+        type: DataTypes.TEXT,
+        unique: true
+    }
 },
     {
         hooks: {
